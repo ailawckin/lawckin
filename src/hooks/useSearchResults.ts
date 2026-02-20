@@ -141,14 +141,21 @@ export const useSearchResults = () => {
   const { toast } = useToast();
 
   const practiceArea = searchParams.get("practice_area") || "";
-  const practiceAreaQuery = practiceArea ? getPracticeAreaSearchTerm(practiceArea) : "";
+  const practiceAreaQuery = useMemo(
+    () => (practiceArea ? getPracticeAreaSearchTerm(practiceArea) : ""),
+    [practiceArea]
+  );
   const locationParam = searchParams.get("location") || "";
   const locationsParam = searchParams.get("locations") || "";
-  const locationTokens = locationsParam
-    ? locationsParam.split(",").map((value) => value.trim()).filter(Boolean)
-    : locationParam
-      ? [locationParam]
-      : [];
+  const locationTokens = useMemo(
+    () =>
+      locationsParam
+        ? locationsParam.split(",").map((value) => value.trim()).filter(Boolean)
+        : locationParam
+          ? [locationParam]
+          : [],
+    [locationParam, locationsParam]
+  );
   const location = locationTokens.join(", ");
   const budget = searchParams.get("budget") || "";
   const specificIssue = searchParams.get("specific_issue") || "";
@@ -458,8 +465,9 @@ export const useSearchResults = () => {
       languages,
       location,
       locationParam,
-      locationsParam,
+      locationTokens,
       practiceArea,
+      practiceAreaQuery,
       specificIssue,
       keywords,
       urgency,
@@ -493,7 +501,10 @@ export const useSearchResults = () => {
     [secondaryLawyers, sortBy]
   );
   const showTopMatches = currentPage === 1 && sortBy === "relevance";
-  const topMatches = showTopMatches ? sortedPrimary.slice(0, TOP_MATCHES_COUNT) : [];
+  const topMatches = useMemo(
+    () => (showTopMatches ? sortedPrimary.slice(0, TOP_MATCHES_COUNT) : []),
+    [showTopMatches, sortedPrimary]
+  );
   const topMatchIds = useMemo(
     () => new Set(topMatches.map((lawyer) => lawyer.id)),
     [topMatches]
