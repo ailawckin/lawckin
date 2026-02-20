@@ -23,12 +23,17 @@ npm install
 cp .env.example .env
 ```
 
-3. Set client-side environment variables:
+3. Set environment variables:
 
 ```env
+# Client app
 VITE_SUPABASE_URL=your-supabase-url
 VITE_SUPABASE_PUBLISHABLE_KEY=your-anon-key
 VITE_GOOGLE_MAPS_API_KEY=optional-for-address-autocomplete
+
+# Script/ops (required for seed/cleanup/backfill)
+SUPABASE_URL=your-supabase-url
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
 4. Start the dev server:
