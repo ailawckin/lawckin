@@ -84,16 +84,55 @@ const applyPracticeAreaFilter = (
   );
 };
 
+const normalizeCsvValues = (raw: string) => {
+  if (!raw) return [] as string[];
+  const seen = new Set<string>();
+  const normalized: string[] = [];
+
+  for (const value of raw.split(",")) {
+    const trimmed = value.trim();
+    if (!trimmed) continue;
+    const key = trimmed.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    normalized.push(trimmed);
+  }
+
+  return normalized;
+};
+
+const dedupeLawyers = (lawyers: LawyerSearchResult[]) => {
+  const seen = new Set<string>();
+  return lawyers.filter((lawyer) => {
+    if (!lawyer.id || seen.has(lawyer.id)) return false;
+    seen.add(lawyer.id);
+    return true;
+  });
+};
+
 const sortLawyers = (lawyers: LawyerSearchResult[], sortBy: SearchSortOption) => {
   if (sortBy === "rating") {
-    return [...lawyers].sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    return [...lawyers].sort((a, b) =>
+      (b.rating || 0) - (a.rating || 0) ||
+      (b.total_reviews || 0) - (a.total_reviews || 0) ||
+      (b.experience_years || 0) - (a.experience_years || 0)
+    );
   }
 
   if (sortBy === "price") {
-    return [...lawyers].sort((a, b) => (a.hourly_rate || 999999) - (b.hourly_rate || 999999));
+    return [...lawyers].sort((a, b) =>
+      (a.hourly_rate || 999999) - (b.hourly_rate || 999999) ||
+      (b.rating || 0) - (a.rating || 0) ||
+      (b.total_reviews || 0) - (a.total_reviews || 0)
+    );
   }
 
-  return [...lawyers].sort((a, b) => (b.match_score || 0) - (a.match_score || 0));
+  return [...lawyers].sort((a, b) =>
+    (b.match_score || 0) - (a.match_score || 0) ||
+    (b.rating || 0) - (a.rating || 0) ||
+    (b.total_reviews || 0) - (a.total_reviews || 0) ||
+    (b.experience_years || 0) - (a.experience_years || 0)
+  );
 };
 
 export const useSearchResults = () => {
@@ -156,20 +195,18 @@ export const useSearchResults = () => {
         const locationArray = locationTokens.length > 0 ? locationTokens : null;
         const primaryLocation = locationTokens[0] || locationParam || null;
 
-        const urlLanguages = languages ? languages.split(",").filter((lang) => lang.trim()) : [];
-        const filterLanguagesArray = activeFilters.languages
-          ? activeFilters.languages.split(",").map((lang) => lang.trim())
-          : [];
-        const combinedLanguages = [...new Set([...urlLanguages, ...filterLanguagesArray])];
+        const urlLanguages = normalizeCsvValues(languages);
+        const filterLanguagesArray = normalizeCsvValues(activeFilters.languages);
+        const combinedLanguages = [...new Set([...urlLanguages, ...filterLanguagesArray].map((v) => v.toLowerCase()))];
         const languageArray = combinedLanguages.length > 0 ? combinedLanguages : null;
 
         let data: LawyerSearchResult[] = [];
         let shouldFallback = false;
         let searchFromMissing = false;
         let advancedMissing = false;
-        const keywordArray = keywords
-          ? keywords.split(",").map((keyword) => keyword.trim()).filter(Boolean)
-          : [];
+        const keywordArray = normalizeCsvValues(keywords)
+          .map((keyword) => keyword.toLowerCase())
+          .filter((keyword) => keyword.length >= 2);
 
         if (searchId) {
           try {
@@ -330,12 +367,13 @@ export const useSearchResults = () => {
               if (!lawyer.languages || !Array.isArray(lawyer.languages)) return false;
               return languageArray.some((lang) =>
                 lawyer.languages?.some((language) =>
-                  language.toLowerCase().includes(lang.toLowerCase())
+                  language.toLowerCase().includes(lang)
                 )
               );
             });
           }
           data = applyPracticeAreaFilter(data, practiceAreaQuery);
+          data = dedupeLawyers(data);
         }
 
         setPrimaryLawyers(data);
@@ -404,13 +442,7 @@ export const useSearchResults = () => {
         }
 
         secondaryResults = applyPracticeAreaFilter(secondaryResults, practiceAreaQuery);
-        const seenSecondary = new Set<string>();
-        const uniqueSecondary = secondaryResults.filter((lawyer) => {
-          if (seenSecondary.has(lawyer.id)) return false;
-          seenSecondary.add(lawyer.id);
-          return true;
-        });
-        setSecondaryLawyers(uniqueSecondary);
+        setSecondaryLawyers(dedupeLawyers(secondaryResults));
       } catch (error: unknown) {
         toast({
           title: "Error loading results",
@@ -480,9 +512,10 @@ export const useSearchResults = () => {
     () => secondaryBase.filter((lawyer) => !primaryIds.has(lawyer.id)),
     [secondaryBase, primaryIds]
   );
+  const shouldBlendSecondary = primaryBase.length < LAWYERS_PER_PAGE;
   const combinedBase = showTopMatches
-    ? [...primaryRemainder, ...secondaryFiltered]
-    : [...primaryBase, ...secondaryFiltered];
+    ? [...primaryRemainder, ...(shouldBlendSecondary ? secondaryFiltered : [])]
+    : [...primaryBase, ...(shouldBlendSecondary ? secondaryFiltered : [])];
   const combinedLawyers = sortBy === "relevance" ? combinedBase : sortLawyers(combinedBase, sortBy);
   const totalResults = topMatches.length + combinedLawyers.length;
   const totalPages = Math.max(1, Math.ceil(combinedLawyers.length / LAWYERS_PER_PAGE));
