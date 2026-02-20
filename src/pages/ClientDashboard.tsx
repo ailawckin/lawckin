@@ -47,24 +47,33 @@ const ClientDashboard = () => {
   }, [activeTab, user?.id]);
 
   const checkAuth = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    
-    if (!user) {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      
+      if (!user) {
+        toast({
+          title: "Authentication required",
+          description: "Please sign in to access your dashboard",
+          variant: "destructive",
+        });
+        navigate("/auth");
+        return;
+      }
+
+      setUser(user);
+      await Promise.all([
+        fetchProfile(user.id),
+        fetchClientConsultations(user.id)
+      ]);
+    } catch (error: any) {
       toast({
-        title: "Authentication required",
-        description: "Please sign in to access your dashboard",
+        title: "Unable to load dashboard",
+        description: error?.message || "Please try again.",
         variant: "destructive",
       });
-      navigate("/auth");
-      return;
+    } finally {
+      setLoading(false);
     }
-
-    setUser(user);
-    await Promise.all([
-      fetchProfile(user.id),
-      fetchClientConsultations(user.id)
-    ]);
-    setLoading(false);
   };
 
   const handleProfileUpdate = async (formData: any) => {

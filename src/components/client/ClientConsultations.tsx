@@ -16,8 +16,9 @@ import {
   CheckCircle2,
   XCircle
 } from "lucide-react";
-import { format, isBefore, isAfter, subMinutes, formatDistanceToNow, differenceInDays, differenceInHours } from "date-fns";
+import { format, isBefore, isAfter, subMinutes, formatDistanceToNow, differenceInHours } from "date-fns";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getPrimaryLocation, getPrimaryPracticeArea } from "@/lib/lawyerDisplay";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
@@ -38,6 +39,7 @@ interface ClientConsultationsProps {
 }
 
 const ClientConsultations = ({ consultations, onCancelConsultation }: ClientConsultationsProps) => {
+  const navigate = useNavigate();
   const [expandedNotes, setExpandedNotes] = useState<string | null>(null);
   const [consultationNotes, setConsultationNotes] = useState<Record<string, string>>({});
   const [selectedRating, setSelectedRating] = useState<Record<string, number>>({});
@@ -71,8 +73,8 @@ const ClientConsultations = ({ consultations, onCancelConsultation }: ClientCons
   
   const past = consultations
     .filter(c => 
-      isBefore(new Date(c.scheduled_at), now) || 
-      c.status === 'completed'
+      c.status === 'completed' ||
+      (isBefore(new Date(c.scheduled_at), now) && c.status !== 'cancelled')
     )
     .sort((a, b) => new Date(b.scheduled_at).getTime() - new Date(a.scheduled_at).getTime());
   
@@ -399,7 +401,12 @@ END:VCALENDAR`;
               )}
 
               {isPast && consultation.status === 'completed' && (
-                <Button size="sm" variant="outline" className="flex-1">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="flex-1"
+                  onClick={() => navigate(`/book-consultation/${consultation.lawyer_id}`)}
+                >
                   <RefreshCw className="h-4 w-4 mr-2" />
                   Book Follow-up
                 </Button>
@@ -411,7 +418,7 @@ END:VCALENDAR`;
                 onClick={() => handleDownloadCalendar(consultation)}
               >
                 <Download className="h-4 w-4 mr-2" />
-                Export PDF
+                Download Invite
               </Button>
             </div>
           </div>
@@ -463,7 +470,7 @@ END:VCALENDAR`;
               <p className="text-sm text-muted-foreground text-center mb-4">
                 Schedule a consultation with a lawyer to get started
               </p>
-              <Button>Find a Lawyer</Button>
+              <Button onClick={() => navigate("/lawyers")}>Find a Lawyer</Button>
             </CardContent>
           </Card>
         )}

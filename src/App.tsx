@@ -80,7 +80,7 @@ const App = () => (
             <Route 
               path="/dashboard" 
               element={
-                <ProtectedRoute>
+                <ProtectedRoute requireRole="client">
                   <ClientDashboard />
                 </ProtectedRoute>
               } 

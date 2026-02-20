@@ -6,7 +6,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { User, Upload, Bell, Shield, Globe, Briefcase, AlertTriangle, DollarSign } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { validateImageFile } from "@/lib/fileValidation";
@@ -15,7 +15,7 @@ import { format } from "date-fns";
 
 interface ClientProfileProps {
   profile: any;
-  onUpdate: (formData: any) => void;
+  onUpdate: (formData: any) => Promise<void>;
   consultations?: any[];
 }
 
@@ -30,9 +30,19 @@ const ClientProfile = ({ profile, onUpdate, consultations = [] }: ClientProfileP
   });
   const [uploadingAvatar, setUploadingAvatar] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    setFormData({
+      full_name: profile?.full_name || "",
+      email: profile?.email || "",
+      phone: profile?.phone || "",
+      preferred_language: profile?.preferred_language || "English",
+      bio: profile?.bio || "",
+    });
+  }, [profile]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onUpdate(formData);
+    await onUpdate(formData);
   };
 
   const handleAvatarUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
