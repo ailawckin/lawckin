@@ -3,6 +3,7 @@ import { Menu, LogOut, LayoutDashboard, Shield, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import type { User } from "@supabase/supabase-js";
 import logo from "@/assets/lawckin-logo.png";
 import FindLawyerModal from "./FindLawyerModal";
 import {
@@ -22,9 +23,9 @@ import {
 import { useToast } from "@/hooks/use-toast";
 
 const Header = () => {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [userRole, setUserRole] = useState<string | null>(null);
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<{ full_name: string | null } | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [findLawyerModalOpen, setFindLawyerModalOpen] = useState(false);
   const [isPracticeAreasActive, setIsPracticeAreasActive] = useState(false);
@@ -75,7 +76,7 @@ const Header = () => {
     const { data } = await supabase
       .from("profiles")
       .select("full_name")
-      .eq("id", userId)
+      .eq("user_id", userId)
       .maybeSingle();
 
     if (data) {
