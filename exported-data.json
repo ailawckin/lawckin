@@ -1,0 +1,1684 @@
+{
+  "practice_areas": [
+    {
+      "id": "60972253-f9e9-470c-bb72-adbb455272b4",
+      "name": "Family Law",
+      "description": "Divorce, custody, adoption, and family matters",
+      "icon": "Home",
+      "created_at": "2025-10-13T22:58:53.679007+00:00"
+    },
+    {
+      "id": "e1535065-f461-4cb3-ace1-6df45b61cee3",
+      "name": "Criminal Defense",
+      "description": "Criminal cases and defense representation",
+      "icon": "Shield",
+      "created_at": "2025-10-13T22:58:53.679007+00:00"
+    },
+    {
+      "id": "9aa52c86-a20e-427a-b325-3c63be83c05e",
+      "name": "Corporate Law",
+      "description": "Business law, contracts, and corporate matters",
+      "icon": "Briefcase",
+      "created_at": "2025-10-13T22:58:53.679007+00:00"
+    },
+    {
+      "id": "ac0adfd1-2847-4b5d-a079-60af3a188968",
+      "name": "Real Estate",
+      "description": "Property transactions and real estate law",
+      "icon": "Building",
+      "created_at": "2025-10-13T22:58:53.679007+00:00"
+    },
+    {
+      "id": "0246be3c-9288-4ec9-aa03-7c678fd5570e",
+      "name": "Immigration",
+      "description": "Immigration and citizenship matters",
+      "icon": "Globe",
+      "created_at": "2025-10-13T22:58:53.679007+00:00"
+    },
+    {
+      "id": "e0b1985e-53e6-45fb-b080-50c41cf06a52",
+      "name": "Personal Injury",
+      "description": "Accident and injury claims",
+      "icon": "AlertCircle",
+      "created_at": "2025-10-13T22:58:53.679007+00:00"
+    }
+  ],
+  "firms": [],
+  "profiles": [],
+  "user_roles": [],
+  "lawyer_profiles": [
+    {
+      "id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "user_id": "d4cfb8db-c8a9-498a-a573-2e649c7e9384",
+      "specialty": "Family Law",
+      "experience_years": 12,
+      "hourly_rate": 10,
+      "bio": "hello",
+      "education": "harvard",
+      "certifications": null,
+      "languages": [
+        "English"
+      ],
+      "rating": 0,
+      "total_reviews": 0,
+      "location": "New York",
+      "created_at": "2025-10-14T01:15:54.86701+00:00",
+      "updated_at": "2025-11-05T03:59:21.419084+00:00",
+      "practice_areas": [
+        "Criminal Defense"
+      ],
+      "ny_locations": [
+        "Manhattan",
+        "Queens"
+      ],
+      "hourly_min": null,
+      "hourly_max": 67,
+      "meeting_types": [
+        "online",
+        "in-person"
+      ],
+      "fee_models": [
+        "hourly"
+      ],
+      "verified": true,
+      "verification_status": "approved",
+      "bar_number": "1234567",
+      "verification_documents": null,
+      "tier": "basic",
+      "last_active": "2025-10-14T01:15:54.86701+00:00",
+      "status": "active",
+      "firm_id": null,
+      "timezone": "America/New_York"
+    },
+    {
+      "id": "a9250457-c060-4708-b764-a1688e7d0904",
+      "user_id": "f16ac917-a242-43d1-95de-3bcccb660b19",
+      "specialty": "Personal Injury",
+      "experience_years": 0,
+      "hourly_rate": null,
+      "bio": null,
+      "education": null,
+      "certifications": null,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "rating": 0,
+      "total_reviews": 0,
+      "location": null,
+      "created_at": "2025-10-14T03:48:20.263829+00:00",
+      "updated_at": "2025-10-14T03:49:37.893402+00:00",
+      "practice_areas": [
+        "Criminal Defense",
+        "Immigration",
+        "Real Estate",
+        "Business Law"
+      ],
+      "ny_locations": [
+        "Manhattan",
+        "Queens",
+        "Staten Island",
+        "Suffolk",
+        "Albany"
+      ],
+      "hourly_min": 10,
+      "hourly_max": 100,
+      "meeting_types": [
+        "online",
+        "in-person"
+      ],
+      "fee_models": [
+        "hourly"
+      ],
+      "verified": false,
+      "verification_status": "rejected",
+      "bar_number": "123456789",
+      "verification_documents": null,
+      "tier": "pro",
+      "last_active": "2025-10-14T03:48:20.263829+00:00",
+      "status": "active",
+      "firm_id": null,
+      "timezone": "America/New_York"
+    },
+    {
+      "id": "70693db7-edd0-4717-a22e-37b9a8b53517",
+      "user_id": "1d6a3b1f-4bd4-43ce-a900-2b98dda78b63",
+      "specialty": "Criminal Defense",
+      "experience_years": 0,
+      "hourly_rate": 160,
+      "bio": "Hello ",
+      "education": "test ",
+      "certifications": null,
+      "languages": [
+        "English",
+        "Spanish"
+      ],
+      "rating": 0,
+      "total_reviews": 0,
+      "location": "New York",
+      "created_at": "2025-11-04T20:33:59.403573+00:00",
+      "updated_at": "2025-11-05T01:33:28.891851+00:00",
+      "practice_areas": [
+        "Criminal Defense",
+        "Immigration",
+        "Real Estate",
+        "Family Law"
+      ],
+      "ny_locations": [
+        "Manhattan",
+        "Queens",
+        "Staten Island",
+        "Albany"
+      ],
+      "hourly_min": null,
+      "hourly_max": 400,
+      "meeting_types": [
+        "online",
+        "in-person"
+      ],
+      "fee_models": [
+        "hourly"
+      ],
+      "verified": true,
+      "verification_status": "approved",
+      "bar_number": "123456789",
+      "verification_documents": null,
+      "tier": "basic",
+      "last_active": "2025-11-04T20:33:59.403573+00:00",
+      "status": "active",
+      "firm_id": null,
+      "timezone": "America/New_York"
+    }
+  ],
+  "lawyer_expertise": [
+    {
+      "id": "9ae96f57-c5fb-4570-bbda-e75093c3ff51",
+      "lawyer_id": "70693db7-edd0-4717-a22e-37b9a8b53517",
+      "practice_area_id": "60972253-f9e9-470c-bb72-adbb455272b4",
+      "years_experience": 7,
+      "created_at": "2025-11-05T01:33:29.450093+00:00",
+      "updated_at": "2025-11-05T01:33:29.450093+00:00"
+    },
+    {
+      "id": "b6ff1a2e-4934-486b-b0d0-5d16f3fa1115",
+      "lawyer_id": "70693db7-edd0-4717-a22e-37b9a8b53517",
+      "practice_area_id": "e1535065-f461-4cb3-ace1-6df45b61cee3",
+      "years_experience": 12,
+      "created_at": "2025-11-05T01:33:29.450093+00:00",
+      "updated_at": "2025-11-05T01:33:29.450093+00:00"
+    },
+    {
+      "id": "a837e3fb-f49e-4a95-a231-55a6f75c56ac",
+      "lawyer_id": "70693db7-edd0-4717-a22e-37b9a8b53517",
+      "practice_area_id": "ac0adfd1-2847-4b5d-a079-60af3a188968",
+      "years_experience": 3,
+      "created_at": "2025-11-05T01:33:29.450093+00:00",
+      "updated_at": "2025-11-05T01:33:29.450093+00:00"
+    },
+    {
+      "id": "af8f398e-32ea-4a5c-8fce-dbe7b4e1a6f1",
+      "lawyer_id": "70693db7-edd0-4717-a22e-37b9a8b53517",
+      "practice_area_id": "0246be3c-9288-4ec9-aa03-7c678fd5570e",
+      "years_experience": 2,
+      "created_at": "2025-11-05T01:33:29.450093+00:00",
+      "updated_at": "2025-11-05T01:33:29.450093+00:00"
+    },
+    {
+      "id": "cfe1c557-b14e-49e0-9a11-6eb0d883069c",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "practice_area_id": "9aa52c86-a20e-427a-b325-3c63be83c05e",
+      "years_experience": 10,
+      "created_at": "2025-11-05T03:59:22.100059+00:00",
+      "updated_at": "2025-11-05T03:59:22.100059+00:00"
+    }
+  ],
+  "lawyer_specializations": [
+    {
+      "id": "683e21b0-48ad-4c6d-8cbc-e8d95668f7c8",
+      "lawyer_id": "70693db7-edd0-4717-a22e-37b9a8b53517",
+      "specialization_id": "e63fb6d7-e4e1-40f0-a85d-ebf6f9194ee5",
+      "years_experience": 1,
+      "created_at": "2025-11-05T01:33:27.270923+00:00",
+      "updated_at": "2025-11-05T01:33:27.270923+00:00"
+    },
+    {
+      "id": "a508c837-5d1f-4af4-811c-8ef9b80ad5fd",
+      "lawyer_id": "70693db7-edd0-4717-a22e-37b9a8b53517",
+      "specialization_id": "a9f4a260-833f-4c54-9fcb-56f67e64a50a",
+      "years_experience": 1,
+      "created_at": "2025-11-05T01:33:27.270923+00:00",
+      "updated_at": "2025-11-05T01:33:27.270923+00:00"
+    },
+    {
+      "id": "4f654913-bf9f-4800-ad13-df09b17def11",
+      "lawyer_id": "70693db7-edd0-4717-a22e-37b9a8b53517",
+      "specialization_id": "ece9d9e5-836e-4fd0-a1a7-0d29266eeedc",
+      "years_experience": 1,
+      "created_at": "2025-11-05T01:33:27.270923+00:00",
+      "updated_at": "2025-11-05T01:33:27.270923+00:00"
+    },
+    {
+      "id": "42d4deef-8ec9-4f6e-9608-cb02e5ce7fda",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "specialization_id": "a9f4a260-833f-4c54-9fcb-56f67e64a50a",
+      "years_experience": 6,
+      "created_at": "2025-11-05T03:59:21.760312+00:00",
+      "updated_at": "2025-11-05T03:59:21.760312+00:00"
+    },
+    {
+      "id": "f3a73950-780e-4652-ac9f-e38eeb576387",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "specialization_id": "e63fb6d7-e4e1-40f0-a85d-ebf6f9194ee5",
+      "years_experience": 2,
+      "created_at": "2025-11-05T03:59:21.760312+00:00",
+      "updated_at": "2025-11-05T03:59:21.760312+00:00"
+    },
+    {
+      "id": "33e56c15-342f-40e6-827e-55d7c6a1b7fd",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "specialization_id": "ece9d9e5-836e-4fd0-a1a7-0d29266eeedc",
+      "years_experience": 10,
+      "created_at": "2025-11-05T03:59:21.760312+00:00",
+      "updated_at": "2025-11-05T03:59:21.760312+00:00"
+    }
+  ],
+  "consultations": [],
+  "time_slots": [
+    {
+      "id": "70e6a62c-f731-47c7-a6df-3215f1e76f46",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T09:00:00+00:00",
+      "end_time": "2025-10-17T10:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:46:25.681993+00:00"
+    },
+    {
+      "id": "0fb225de-1593-4efe-9878-b156c5dd7458",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T10:00:00+00:00",
+      "end_time": "2025-10-17T11:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:46:25.681993+00:00"
+    },
+    {
+      "id": "8936f99b-b298-4723-97ef-ad16b31414aa",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T11:00:00+00:00",
+      "end_time": "2025-10-17T12:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:46:25.681993+00:00"
+    },
+    {
+      "id": "b6b50932-b50f-4ae1-aed2-6ec0200307ce",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T12:00:00+00:00",
+      "end_time": "2025-10-17T13:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:46:25.681993+00:00"
+    },
+    {
+      "id": "5f4e3598-d6ae-4448-a6cc-7974054fea37",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T13:00:00+00:00",
+      "end_time": "2025-10-17T14:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:46:25.681993+00:00"
+    },
+    {
+      "id": "904da915-8c89-453d-b3a2-5234c1455456",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T14:00:00+00:00",
+      "end_time": "2025-10-17T15:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:46:25.681993+00:00"
+    },
+    {
+      "id": "8bd303db-c008-4dbb-8d16-52dd1749b1a7",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T15:00:00+00:00",
+      "end_time": "2025-10-17T16:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:46:25.681993+00:00"
+    },
+    {
+      "id": "f30c4059-2077-45d0-a66d-5f762aee2385",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T16:00:00+00:00",
+      "end_time": "2025-10-17T17:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:46:25.681993+00:00"
+    },
+    {
+      "id": "f8f338d4-693f-4bca-8fc1-00f78d8d6411",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T09:00:00+00:00",
+      "end_time": "2025-11-03T10:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "0fd9b4e7-28b5-4d5b-8b2c-b06b837a5455",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T10:00:00+00:00",
+      "end_time": "2025-11-03T11:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "495ac608-b51a-45d7-a24d-d7e2b45e0682",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T11:00:00+00:00",
+      "end_time": "2025-11-03T12:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "23fc57e6-583f-4d76-9c3c-4f8ebf8a91bd",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T12:00:00+00:00",
+      "end_time": "2025-11-03T13:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "c8be1bfa-f1d8-40a6-b0e7-1d92fd15ac2f",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T13:00:00+00:00",
+      "end_time": "2025-11-03T14:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "d7594c55-7955-4f21-b9fb-d7f9234c712f",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T14:00:00+00:00",
+      "end_time": "2025-11-03T15:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "a379c3e2-4e8d-41ac-95d0-78349c7b21bb",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T15:00:00+00:00",
+      "end_time": "2025-11-03T16:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "99825149-25e5-4673-8f94-5d1808822dba",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T16:00:00+00:00",
+      "end_time": "2025-11-03T17:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "122851c1-cd15-43c5-9917-b75276018e4c",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T07:00:00+00:00",
+      "end_time": "2025-10-18T08:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:43.984421+00:00"
+    },
+    {
+      "id": "d03f3e9b-6168-41de-be9e-8fce6ae3a8dd",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T08:00:00+00:00",
+      "end_time": "2025-10-18T09:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:43.984421+00:00"
+    },
+    {
+      "id": "b87d555f-7cc3-46c6-b9b3-4a036577968d",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T09:00:00+00:00",
+      "end_time": "2025-10-18T10:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:43.984421+00:00"
+    },
+    {
+      "id": "ab88d0eb-c4de-4ef0-b0ce-069589ac7c88",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T10:00:00+00:00",
+      "end_time": "2025-10-18T11:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:43.984421+00:00"
+    },
+    {
+      "id": "e3324260-d1b4-480a-ba85-e5eb1960ff4a",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T11:00:00+00:00",
+      "end_time": "2025-10-18T12:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:43.984421+00:00"
+    },
+    {
+      "id": "1a391f6b-ee45-4bdb-af58-8de586ffffcf",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T12:00:00+00:00",
+      "end_time": "2025-10-18T13:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:43.984421+00:00"
+    },
+    {
+      "id": "4c911558-8dd6-4100-b4a7-cb6a4abbbfe7",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T13:00:00+00:00",
+      "end_time": "2025-10-18T14:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:43.984421+00:00"
+    },
+    {
+      "id": "0718efe5-5e6a-49f5-93a1-596eab0eb3dd",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T14:00:00+00:00",
+      "end_time": "2025-10-18T15:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:43.984421+00:00"
+    },
+    {
+      "id": "b00e11f3-6fc5-44b7-9eb4-eeea8b682f09",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T15:00:00+00:00",
+      "end_time": "2025-10-18T16:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:43.984421+00:00"
+    },
+    {
+      "id": "8735c579-2344-4509-9e20-2b9a182bc1fd",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T09:00:00+00:00",
+      "end_time": "2025-10-27T10:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-28T02:29:08.880812+00:00"
+    },
+    {
+      "id": "b7dff214-2de7-49de-ae1d-e083c28376e8",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T10:00:00+00:00",
+      "end_time": "2025-10-27T11:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-28T02:29:08.880812+00:00"
+    },
+    {
+      "id": "71bf5af9-7e75-4201-86fe-3950a2be4cfc",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T11:00:00+00:00",
+      "end_time": "2025-10-27T12:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-28T02:29:08.880812+00:00"
+    },
+    {
+      "id": "73f3c66f-da3c-48b1-a8aa-2a4ba2b66105",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T12:00:00+00:00",
+      "end_time": "2025-10-27T13:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-28T02:29:08.880812+00:00"
+    },
+    {
+      "id": "0abd8a51-0def-422a-903c-d1fd4924adef",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T13:00:00+00:00",
+      "end_time": "2025-10-27T14:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-28T02:29:08.880812+00:00"
+    },
+    {
+      "id": "9af4d143-f372-4707-bc3c-a451e0082dc3",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T14:00:00+00:00",
+      "end_time": "2025-10-27T15:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-28T02:29:08.880812+00:00"
+    },
+    {
+      "id": "e1263f47-a8b7-446f-af19-b14a40618ec7",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T15:00:00+00:00",
+      "end_time": "2025-10-27T16:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-28T02:29:08.880812+00:00"
+    },
+    {
+      "id": "030818bc-3d18-4b7f-b522-7b95ad05a4d0",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T16:00:00+00:00",
+      "end_time": "2025-10-27T17:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-28T02:29:08.880812+00:00"
+    },
+    {
+      "id": "0948721a-6f67-43c9-928d-fa7fd144d51b",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T17:00:00+00:00",
+      "end_time": "2025-11-03T18:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "9eb51932-f7c2-47a3-9fc1-a09509113a6e",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T18:00:00+00:00",
+      "end_time": "2025-11-03T19:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "85a98461-2d76-4a63-9f54-7c0648fd926a",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T19:00:00+00:00",
+      "end_time": "2025-11-03T20:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "9579acc9-d06d-46e6-ad32-33f481564449",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T20:00:00+00:00",
+      "end_time": "2025-11-03T21:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    },
+    {
+      "id": "9b398979-5aec-47a6-b59e-b86a161e4e71",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T09:00:00+00:00",
+      "end_time": "2025-11-05T10:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "5f22fb04-818c-49d9-b333-614cc6615e2f",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T10:00:00+00:00",
+      "end_time": "2025-11-05T11:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "b2f9229d-b208-4735-8ad4-d9e96ecfee09",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T11:00:00+00:00",
+      "end_time": "2025-11-05T12:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "a551bed4-7a60-4b16-b623-e2f2b47598d5",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T12:00:00+00:00",
+      "end_time": "2025-11-05T13:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "27857df0-5b4a-4f74-9eb4-5aa019a37242",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T13:00:00+00:00",
+      "end_time": "2025-11-05T14:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "cc2e9e01-edb5-451c-ac6e-969d42035c35",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T14:00:00+00:00",
+      "end_time": "2025-11-05T15:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "18aa2dab-65e2-46c3-a20c-83125109f689",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T15:00:00+00:00",
+      "end_time": "2025-11-05T16:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "4f8aa40b-2edb-4968-bec7-e3e70f9a0272",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T16:00:00+00:00",
+      "end_time": "2025-11-05T17:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "58d0311e-9cb4-4424-94b0-6c97826add22",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T19:00:00+00:00",
+      "end_time": "2025-11-05T20:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "913942d4-a62c-47ea-a0f8-592d4d1e6268",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T20:00:00+00:00",
+      "end_time": "2025-11-05T21:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "fc40263e-906c-4f9a-92f5-3719a759b815",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T21:00:00+00:00",
+      "end_time": "2025-11-05T22:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "e4669db7-a775-4ccc-92fa-d910013a1f66",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T09:00:00+00:00",
+      "end_time": "2025-11-08T10:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "2e5bbe49-9f56-44f0-8057-b2ecc4c38aaa",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T10:00:00+00:00",
+      "end_time": "2025-11-08T11:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "2d9bb19c-f872-460d-9789-1ced437016b0",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T11:00:00+00:00",
+      "end_time": "2025-11-08T12:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "765937ee-64f3-4a6c-be17-10b67ef13d56",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T12:00:00+00:00",
+      "end_time": "2025-11-08T13:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "5cda3ea2-0549-41f6-a502-e2eed89afd28",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T17:00:00+00:00",
+      "end_time": "2025-10-16T18:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "dd61ba66-bf27-4470-afef-ce4f8afaa7b9",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T18:00:00+00:00",
+      "end_time": "2025-10-16T19:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "038bf1a0-1f67-4944-97ad-3e9371c40796",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T19:00:00+00:00",
+      "end_time": "2025-10-16T20:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "f4391896-9a68-46a5-8cc4-e754468e7943",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T20:00:00+00:00",
+      "end_time": "2025-10-16T21:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "a44f761f-9972-4a3d-8677-d9fbd92f9dae",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T17:00:00+00:00",
+      "end_time": "2025-10-17T18:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "6757e643-6105-4a5e-a3d2-29bbe3ff6860",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T18:00:00+00:00",
+      "end_time": "2025-10-17T19:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "a2b69ec4-1b4d-4797-8d46-6201758abc7b",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T19:00:00+00:00",
+      "end_time": "2025-10-17T20:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "07f2bdc8-84fa-4942-b97a-c553be745c2a",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-17T20:00:00+00:00",
+      "end_time": "2025-10-17T21:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "e06c5340-ff65-4195-9bd8-71906a879e4c",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T17:00:00+00:00",
+      "end_time": "2025-10-20T18:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "747b987f-c788-422b-bc34-dc9c958c64b7",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T18:00:00+00:00",
+      "end_time": "2025-10-20T19:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "03bb15ef-c513-407a-81aa-5e612e582260",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T19:00:00+00:00",
+      "end_time": "2025-10-20T20:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "3c25c2e9-6322-4889-a921-2eabb792c9a3",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T20:00:00+00:00",
+      "end_time": "2025-10-20T21:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "ade9d9e7-6fb7-41ce-a861-3863bf646865",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T16:00:00+00:00",
+      "end_time": "2025-10-18T17:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "db5e2903-730f-408c-a45c-80f69f850fc2",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T17:00:00+00:00",
+      "end_time": "2025-10-18T18:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "5f0e2db9-cd70-44f8-b71e-fdbcf0371483",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T18:00:00+00:00",
+      "end_time": "2025-10-18T19:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "52d07877-431f-4172-b4d6-3a20e187759d",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T19:00:00+00:00",
+      "end_time": "2025-10-18T20:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "aeaeebda-1b18-4674-85fa-c3811152b5e1",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T21:30:00+00:00",
+      "end_time": "2025-10-18T22:30:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "67483ced-39aa-43d5-b815-6eff10e63678",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T22:30:00+00:00",
+      "end_time": "2025-10-18T23:30:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "4adcc5a3-8e86-4eb4-922d-634f42c8891e",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T23:30:00+00:00",
+      "end_time": "2025-10-19T00:30:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "f6253313-77da-4ff3-b78e-8d3fd6762ba2",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-19T00:30:00+00:00",
+      "end_time": "2025-10-19T01:30:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "b1f0041c-d1f5-4d68-8c9c-921a8229ae7c",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T17:00:00+00:00",
+      "end_time": "2025-10-27T18:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "6f3f3fff-cc5e-44fe-98e7-b1a8d7859c1b",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T18:00:00+00:00",
+      "end_time": "2025-10-27T19:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "882de033-4b1e-44fb-a74c-3f5be537d873",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T19:00:00+00:00",
+      "end_time": "2025-10-27T20:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "8ebdf812-ca96-4882-94b9-ba1a28e02737",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-27T20:00:00+00:00",
+      "end_time": "2025-10-27T21:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T01:54:38.146207+00:00"
+    },
+    {
+      "id": "c1d017c4-5736-4837-aca0-f30b920ed235",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T13:00:00+00:00",
+      "end_time": "2025-11-08T14:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "68c95a8e-9e31-4bd1-b465-a94d6e11642e",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T14:00:00+00:00",
+      "end_time": "2025-11-08T15:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "448f2114-818f-437a-b3fe-5b8e2497c96f",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T15:00:00+00:00",
+      "end_time": "2025-11-08T16:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "3de544ed-bf97-4917-902c-10b91ca164cb",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T16:00:00+00:00",
+      "end_time": "2025-11-08T17:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "1ebf2919-748a-4bb7-9cbb-2a552aa15a57",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T17:00:00+00:00",
+      "end_time": "2025-11-08T18:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "e018f998-ad8c-4537-b411-13ab10829107",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T18:00:00+00:00",
+      "end_time": "2025-11-08T19:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "5977cee5-b049-4c46-9fb3-9754ea1546b9",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T19:00:00+00:00",
+      "end_time": "2025-11-08T20:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "f150a303-3680-417a-aad9-0d7e29efb27e",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T17:00:00+00:00",
+      "end_time": "2025-11-05T18:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "7445b4b1-54be-450a-b26c-358f3d8574d9",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-05T18:00:00+00:00",
+      "end_time": "2025-11-05T19:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:09.981844+00:00"
+    },
+    {
+      "id": "00f4af22-c8b6-4586-be8c-d70d7f92817f",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T14:00:00+00:00",
+      "end_time": "2025-11-04T15:00:00+00:00",
+      "is_booked": true,
+      "booking_id": "288fa2af-78f2-4262-9f2c-115afd8e0819",
+      "created_at": "2025-10-31T01:42:53.369937+00:00"
+    },
+    {
+      "id": "16b6a3ce-53fd-42b5-8682-f55731c4a2ce",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T09:00:00+00:00",
+      "end_time": "2025-10-16T10:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:43:27.727291+00:00"
+    },
+    {
+      "id": "afe611bd-ed76-42c4-ace1-646c1e4063f3",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T10:00:00+00:00",
+      "end_time": "2025-10-16T11:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:43:27.727291+00:00"
+    },
+    {
+      "id": "4115f691-dabc-4cf0-bc4b-c188e6c739d5",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T11:00:00+00:00",
+      "end_time": "2025-10-16T12:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:43:27.727291+00:00"
+    },
+    {
+      "id": "69707b4f-6197-4b3a-a1eb-d3ef2d3ba2d9",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T12:00:00+00:00",
+      "end_time": "2025-10-16T13:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:43:27.727291+00:00"
+    },
+    {
+      "id": "b5a12d81-895a-491d-9356-97e7238fc1e3",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T13:00:00+00:00",
+      "end_time": "2025-10-16T14:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:43:27.727291+00:00"
+    },
+    {
+      "id": "4d328210-86ff-47a3-8671-276e8be14bad",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T14:00:00+00:00",
+      "end_time": "2025-10-16T15:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:43:27.727291+00:00"
+    },
+    {
+      "id": "22cb0890-fa91-4f05-a7be-3c7b763ae3a0",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T15:00:00+00:00",
+      "end_time": "2025-10-16T16:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:43:27.727291+00:00"
+    },
+    {
+      "id": "747f2685-b619-4dbb-a48c-63ae7cc3c599",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-16T16:00:00+00:00",
+      "end_time": "2025-10-16T17:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-17T18:43:27.727291+00:00"
+    },
+    {
+      "id": "01cd76a0-268c-4333-9efa-7a4acc4f3c80",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T09:00:00+00:00",
+      "end_time": "2025-10-20T10:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:25:05.947754+00:00"
+    },
+    {
+      "id": "b39ddb98-4a26-40b1-886f-f5e17360b7b0",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T10:00:00+00:00",
+      "end_time": "2025-10-20T11:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:25:05.947754+00:00"
+    },
+    {
+      "id": "3b8bb689-e01f-44ba-8bdc-4b147d8e3749",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T11:00:00+00:00",
+      "end_time": "2025-10-20T12:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:25:05.947754+00:00"
+    },
+    {
+      "id": "e655ecfc-5f95-4cea-a6de-fb5c4e3ce91f",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T12:00:00+00:00",
+      "end_time": "2025-10-20T13:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:25:05.947754+00:00"
+    },
+    {
+      "id": "48a1c9d0-5214-4304-9faf-81865849bd03",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T13:00:00+00:00",
+      "end_time": "2025-10-20T14:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:25:05.947754+00:00"
+    },
+    {
+      "id": "80d1997a-ada0-4c06-a0a6-a33701d738a4",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T14:00:00+00:00",
+      "end_time": "2025-10-20T15:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:25:05.947754+00:00"
+    },
+    {
+      "id": "5477f178-051f-4a9e-954e-2f78650aa933",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T15:00:00+00:00",
+      "end_time": "2025-10-20T16:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:25:05.947754+00:00"
+    },
+    {
+      "id": "7ac48229-1819-4da8-8d82-f54d00724507",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-20T16:00:00+00:00",
+      "end_time": "2025-10-20T17:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:25:05.947754+00:00"
+    },
+    {
+      "id": "a745a153-b128-44e7-9edd-f6eef95f0b07",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T09:00:00+00:00",
+      "end_time": "2025-11-04T10:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "0226caa6-c981-472b-a54c-e99df4700184",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T10:00:00+00:00",
+      "end_time": "2025-11-04T11:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "1765477f-0632-4a22-985a-a3d195799af6",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T11:00:00+00:00",
+      "end_time": "2025-11-04T12:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "58a343ad-f186-44c0-bbc6-d084aba63eef",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T12:00:00+00:00",
+      "end_time": "2025-11-04T13:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "157b2472-2014-4553-95f0-429e817b7dcb",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T13:00:00+00:00",
+      "end_time": "2025-11-04T14:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "63a05164-e82a-4b64-81f9-ab219eb6cd1b",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T15:00:00+00:00",
+      "end_time": "2025-11-04T16:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "e20fc553-0b21-4622-8262-6df92c550124",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T16:00:00+00:00",
+      "end_time": "2025-11-04T17:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "0d5388a4-b5e0-4837-9179-0a0d572f5888",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T17:00:00+00:00",
+      "end_time": "2025-11-04T18:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "6a314de1-f7b4-4d5f-b756-ad18901b551b",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T17:30:00+00:00",
+      "end_time": "2025-10-18T18:30:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:57.273261+00:00"
+    },
+    {
+      "id": "0b46239d-c44d-4d29-99c1-3880004eeb39",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T18:30:00+00:00",
+      "end_time": "2025-10-18T19:30:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:57.273261+00:00"
+    },
+    {
+      "id": "3a64aeb1-1776-4824-86e7-c157d1e6f00e",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T19:30:00+00:00",
+      "end_time": "2025-10-18T20:30:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:57.273261+00:00"
+    },
+    {
+      "id": "f7ea0cb8-c121-40b6-a760-0dcdb10e47e4",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-10-18T20:30:00+00:00",
+      "end_time": "2025-10-18T21:30:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-18T22:41:57.273261+00:00"
+    },
+    {
+      "id": "fe8efed6-0ee4-4e11-b09c-d1642d7d4ef2",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T18:00:00+00:00",
+      "end_time": "2025-11-04T19:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "a82306c8-725b-42c9-b48c-8cab01356ad2",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T19:00:00+00:00",
+      "end_time": "2025-11-04T20:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "a06ed715-7cd1-42e8-a205-ef0dac0dda82",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-01T06:00:00+00:00",
+      "end_time": "2025-11-01T07:00:00+00:00",
+      "is_booked": true,
+      "booking_id": "1bc9fdc8-064e-44d6-9742-2ac8b8d31fff",
+      "created_at": "2025-10-31T01:10:32.022336+00:00"
+    },
+    {
+      "id": "69c9aa71-ba8e-4377-a570-0d3f9f6f61ed",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-01T07:00:00+00:00",
+      "end_time": "2025-11-01T08:00:00+00:00",
+      "is_booked": true,
+      "booking_id": "55011fd1-473d-4869-965e-6821e7ea22b2",
+      "created_at": "2025-10-31T01:10:32.022336+00:00"
+    },
+    {
+      "id": "dd93c654-86d8-4db8-926b-119cff78b82a",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T20:00:00+00:00",
+      "end_time": "2025-11-04T21:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "806c5239-6660-4dd1-97da-be057dc006d2",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-04T21:00:00+00:00",
+      "end_time": "2025-11-04T22:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:07.751072+00:00"
+    },
+    {
+      "id": "cc7a8aaa-3a77-4003-87c7-482c227f70e0",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T09:00:00+00:00",
+      "end_time": "2025-11-06T10:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "8e9c79b8-130b-40cd-af97-0aa90f939629",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T10:00:00+00:00",
+      "end_time": "2025-11-06T11:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "a230f479-d31a-4b27-93e1-bfaeaed65223",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T11:00:00+00:00",
+      "end_time": "2025-11-06T12:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "92712608-312b-4c53-b7a3-ae902849c1e8",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T12:00:00+00:00",
+      "end_time": "2025-11-06T13:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "933ce6cc-5937-4dd5-b064-617b9e04c619",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T13:00:00+00:00",
+      "end_time": "2025-11-06T14:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "3e2a6961-2e58-4240-ada2-ae2d30594f72",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T14:00:00+00:00",
+      "end_time": "2025-11-06T15:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "d4d09caf-9c4b-4bb6-aea3-04d023c642e3",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T15:00:00+00:00",
+      "end_time": "2025-11-06T16:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "7a1c95ac-97dd-4bab-a214-4a88f9823d34",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T16:00:00+00:00",
+      "end_time": "2025-11-06T17:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "6afb8bca-dadb-43a0-9a72-20e66124432c",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T17:00:00+00:00",
+      "end_time": "2025-11-06T18:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "ca0381e0-77a3-4f39-a61a-4ea77d03e933",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T18:00:00+00:00",
+      "end_time": "2025-11-06T19:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "2d5858d3-8376-4ef1-942d-1edc9c0a8fcd",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T19:00:00+00:00",
+      "end_time": "2025-11-06T20:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "5596cd79-4537-46af-91f7-a4e9167eacfa",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T20:00:00+00:00",
+      "end_time": "2025-11-06T21:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "c34a0b49-84db-44b5-9905-254cb65a14ee",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-06T21:00:00+00:00",
+      "end_time": "2025-11-06T22:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:11.412667+00:00"
+    },
+    {
+      "id": "3b8707a3-75a4-4ec9-89f8-88fa4943aee0",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T09:00:00+00:00",
+      "end_time": "2025-11-07T10:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "6e501a4d-d523-46c3-ae5b-d1118060f2ec",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T10:00:00+00:00",
+      "end_time": "2025-11-07T11:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "4046ea02-2e48-4e14-86da-e194976d6776",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T11:00:00+00:00",
+      "end_time": "2025-11-07T12:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "e78513ee-7b8e-4010-97b0-c1afe66e768e",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T12:00:00+00:00",
+      "end_time": "2025-11-07T13:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "f2e7539d-653f-4e50-8f54-81724626d4c9",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T13:00:00+00:00",
+      "end_time": "2025-11-07T14:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "b8c1af3c-81d5-46a5-951d-e568adc32b0f",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T14:00:00+00:00",
+      "end_time": "2025-11-07T15:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "b72b820d-40df-4a57-9c4d-3ea1cf2e6a5a",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T15:00:00+00:00",
+      "end_time": "2025-11-07T16:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "5ec8d3f9-fede-432d-9821-d6b9b3b5fcc9",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T16:00:00+00:00",
+      "end_time": "2025-11-07T17:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "b4052f06-5092-4a97-a7e0-76d0ea33bda5",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T17:00:00+00:00",
+      "end_time": "2025-11-07T18:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "fbcb47b7-36e0-4f92-b58f-ca37aa9de669",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T18:00:00+00:00",
+      "end_time": "2025-11-07T19:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "c986a4d9-6eb4-4908-8bfd-3f9ccb03755d",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T19:00:00+00:00",
+      "end_time": "2025-11-07T20:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "4f07379c-6a9a-4abc-9b05-a6ea81776541",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T20:00:00+00:00",
+      "end_time": "2025-11-07T21:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "809684a9-9739-4f6b-b60f-5cebce2aecf4",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-07T21:00:00+00:00",
+      "end_time": "2025-11-07T22:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:12.744916+00:00"
+    },
+    {
+      "id": "822fa034-53fd-4a4d-90c2-44100c0b5279",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T20:00:00+00:00",
+      "end_time": "2025-11-08T21:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "dc90adcd-bcd5-4bb2-b577-ad0709ac92c1",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-08T21:00:00+00:00",
+      "end_time": "2025-11-08T22:00:00+00:00",
+      "is_booked": false,
+      "booking_id": null,
+      "created_at": "2025-10-31T02:05:14.089153+00:00"
+    },
+    {
+      "id": "ac2ad0ae-8665-483d-9b9a-3eac65a8cf34",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "start_time": "2025-11-03T21:00:00+00:00",
+      "end_time": "2025-11-03T22:00:00+00:00",
+      "is_booked": true,
+      "booking_id": "0f01e91f-9926-48ed-bf8a-aeffbb77110a",
+      "created_at": "2025-10-31T02:04:16.435365+00:00"
+    }
+  ],
+  "recurring_availability": [
+    {
+      "id": "a636edb9-77cf-4ea9-98ac-b78f032e805a",
+      "lawyer_id": "a9250457-c060-4708-b764-a1688e7d0904",
+      "day_of_week": 1,
+      "start_time": "09:00:00",
+      "end_time": "17:00:00",
+      "created_at": "2025-10-16T23:52:00.53761+00:00"
+    },
+    {
+      "id": "deaa4e30-1fbe-4fb5-a61e-6a6d93c18c5b",
+      "lawyer_id": "5b4f4687-c735-40c7-ae2f-affff2fc2b51",
+      "day_of_week": 1,
+      "start_time": "09:00:00",
+      "end_time": "17:00:00",
+      "created_at": "2025-10-17T02:57:56.831341+00:00"
+    }
+  ],
+  "availability_overrides": [],
+  "client_search": [
+    {
+      "id": "f8d8d098-b48c-47f3-93f7-cfe3624bb500",
+      "user_id": null,
+      "created_at": "2025-10-14T00:35:49.795283+00:00",
+      "practice_area": "Family Law",
+      "ny_location": "Manhattan",
+      "budget_band": "affordable",
+      "situation": null,
+      "urgency": null,
+      "meeting_preference": null,
+      "preferred_language": null,
+      "fee_model": null,
+      "matched_lawyers": null
+    },
+    {
+      "id": "6b355d43-2f36-428b-b6d4-f401bc075c97",
+      "user_id": null,
+      "created_at": "2025-10-14T00:36:33.742281+00:00",
+      "practice_area": "Family Law (divorce, custody)",
+      "ny_location": "Manhattan",
+      "budget_band": "Affordable (≤ $150/hr)",
+      "situation": "I already have a case and need representation",
+      "urgency": "Soon (within a week)",
+      "meeting_preference": "In person",
+      "preferred_language": "English",
+      "fee_model": "Hourly",
+      "matched_lawyers": null
+    }
+  ],
+  "calendar_connections": [],
+  "calendar_events_cache": [],
+  "admin_settings": [],
+  "admin_audit_log": [],
+  "reported_items": [],
+  "support_tickets": []
+}

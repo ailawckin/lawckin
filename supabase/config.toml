@@ -1,0 +1,16 @@
+project_id = "zrnklcpgumwcswyxnumk"
+
+[functions.send-consultation-notification]
+verify_jwt = false
+
+[functions.ai-lawyer-intake]
+verify_jwt = false
+
+[functions.ai-lawyer-profile-embedding]
+verify_jwt = false
+
+[functions.google-calendar-auth]
+verify_jwt = false
+
+[functions.sync-calendar]
+verify_jwt = true

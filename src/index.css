@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 215 25% 27%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+    --primary: 211 77% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 211 100% 96%;
+    --secondary-foreground: 211 77% 33%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 211 100% 96%;
+    --accent-foreground: 211 77% 33%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 211 77% 33%;
+    --radius: 0.75rem;
+    --shadow-elegant: 0 4px 20px rgba(26, 77, 143, 0.08);
+    --shadow-hover: 0 8px 32px rgba(26, 77, 143, 0.14);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 220 40% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 35% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 35% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 220 70% 20%;
+
+    --secondary: 45 90% 60%;
+    --secondary-foreground: 220 70% 20%;
+
+    --muted: 220 30% 18%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 45 90% 60%;
+    --accent-foreground: 220 70% 20%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 220 15% 65%;
+    
+    --shadow-elegant: 0 4px 24px -6px hsl(0 0% 0% / 0.3);
+    --shadow-hover: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .elegant-card {
+    @apply bg-card rounded-lg p-6 transition-all duration-300;
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .elegant-card:hover {
+    box-shadow: var(--shadow-hover);
+    @apply -translate-y-1;
+  }
+
+  .brand-wordmark {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.92em;
+  }
+}
