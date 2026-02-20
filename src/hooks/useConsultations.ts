@@ -4,56 +4,59 @@ import { formatInTimeZone } from "date-fns-tz";
 
 interface EnrichedConsultation {
   id: string;
+  lawyer_id: string;
   scheduled_at: string;
   status: string;
   duration_minutes: number;
-  notes?: string;
-  amount?: number;
-  payment_status?: string;
+  meeting_link?: string | null;
+  notes?: string | null;
+  amount?: number | null;
+  payment_status?: string | null;
   profiles?: {
-    full_name: string;
-    email: string;
-  };
+    full_name: string | null;
+    email: string | null;
+  } | null;
   lawyer_profiles?: {
     practice_areas?: string[] | null;
     ny_locations?: string[] | null;
     specialty?: string | null;
     location?: string | null;
     user_id: string;
-    timezone?: string;
+    timezone?: string | null;
     profiles?: {
-      full_name: string;
-    };
-  };
+      full_name: string | null;
+      email: string | null;
+    } | null;
+  } | null;
   practice_areas?: {
     name: string;
-  };
-  formattedTime?: string; // Pre-formatted time in lawyer's timezone
+  } | null;
+  formattedTime?: string;
 }
 
 export const useConsultations = () => {
   const [consultations, setConsultations] = useState<EnrichedConsultation[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const enrichConsultationData = async (consultation: any, userType: "client" | "lawyer") => {
+  const enrichConsultationData = async (
+    consultation: EnrichedConsultation & { client_id?: string; practice_area_id?: string | null },
+    userType: "client" | "lawyer"
+  ): Promise<EnrichedConsultation> => {
     if (userType === "client") {
-      // Fetch lawyer profile using lawyer_profiles.id
       const { data: lawyerProfile } = await supabase
         .from("lawyer_profiles")
         .select("practice_areas, ny_locations, specialty, location, user_id, timezone")
         .eq("id", consultation.lawyer_id)
         .maybeSingle();
 
-      // Fetch lawyer name from profiles using the user_id from lawyer_profile
       const { data: lawyerProfileData } = lawyerProfile
         ? await supabase
             .from("profiles")
-            .select("full_name")
+            .select("full_name, email")
             .eq("user_id", lawyerProfile.user_id)
             .maybeSingle()
         : { data: null };
 
-      // Fetch practice area
       const { data: practiceArea } = consultation.practice_area_id
         ? await supabase
             .from("practice_areas")
@@ -62,11 +65,10 @@ export const useConsultations = () => {
             .maybeSingle()
         : { data: null };
 
-      // Format time in lawyer's timezone for display
       const tz = lawyerProfile?.timezone || "America/New_York";
       const formattedTime = formatInTimeZone(
-        consultation.scheduled_at, 
-        tz, 
+        consultation.scheduled_at,
+        tz,
         "MMM d, yyyy 'at' h:mm a zzz"
       );
 
@@ -79,28 +81,27 @@ export const useConsultations = () => {
         practice_areas: practiceArea,
         formattedTime,
       };
-    } else {
-      // Lawyer view - fetch client data
-      const { data: clientProfile } = await supabase
-        .from("profiles")
-        .select("full_name, email")
-        .eq("user_id", consultation.client_id)
-        .maybeSingle();
-
-      const { data: practiceArea } = consultation.practice_area_id
-        ? await supabase
-            .from("practice_areas")
-            .select("name")
-            .eq("id", consultation.practice_area_id)
-            .maybeSingle()
-        : { data: null };
-
-      return {
-        ...consultation,
-        profiles: clientProfile,
-        practice_areas: practiceArea,
-      };
     }
+
+    const { data: clientProfile } = await supabase
+      .from("profiles")
+      .select("full_name, email")
+      .eq("user_id", consultation.client_id as string)
+      .maybeSingle();
+
+    const { data: practiceArea } = consultation.practice_area_id
+      ? await supabase
+          .from("practice_areas")
+          .select("name")
+          .eq("id", consultation.practice_area_id)
+          .maybeSingle()
+      : { data: null };
+
+    return {
+      ...consultation,
+      profiles: clientProfile,
+      practice_areas: practiceArea,
+    };
   };
 
   const fetchClientConsultations = async (userId: string) => {
@@ -117,11 +118,8 @@ export const useConsultations = () => {
       return [];
     }
 
-    // Enrich each consultation with related data
     const enrichedConsultations = await Promise.all(
-      consultationsData.map(async (consultation) => 
-        enrichConsultationData(consultation, "client")
-      )
+      consultationsData.map(async (consultation) => enrichConsultationData(consultation as any, "client"))
     );
 
     setConsultations(enrichedConsultations);
@@ -131,8 +129,7 @@ export const useConsultations = () => {
 
   const fetchLawyerConsultations = async (userId: string) => {
     setLoading(true);
-    
-    // First get the lawyer_profile.id for this user
+
     const { data: lawyerData } = await supabase
       .from("lawyer_profiles")
       .select("id")
@@ -146,8 +143,7 @@ export const useConsultations = () => {
     }
 
     const now = new Date().toISOString();
-    
-    // Fetch upcoming consultations
+
     const { data: upcomingData } = await supabase
       .from("consultations")
       .select("*")
@@ -156,7 +152,6 @@ export const useConsultations = () => {
       .in("status", ["pending", "confirmed"])
       .order("scheduled_at", { ascending: true });
 
-    // Fetch past consultations
     const { data: pastData } = await supabase
       .from("consultations")
       .select("*")
@@ -164,17 +159,12 @@ export const useConsultations = () => {
       .or(`scheduled_at.lt.${now},status.in.(completed,cancelled)`)
       .order("scheduled_at", { ascending: false });
 
-    // Enrich consultations with related data
     const enrichedUpcoming = await Promise.all(
-      (upcomingData || []).map(async (consultation) => 
-        enrichConsultationData(consultation, "lawyer")
-      )
+      (upcomingData || []).map(async (consultation) => enrichConsultationData(consultation as any, "lawyer"))
     );
 
     const enrichedPast = await Promise.all(
-      (pastData || []).map(async (consultation) => 
-        enrichConsultationData(consultation, "lawyer")
-      )
+      (pastData || []).map(async (consultation) => enrichConsultationData(consultation as any, "lawyer"))
     );
 
     setLoading(false);

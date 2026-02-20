@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { format } from "date-fns";
-import { useMessages, Message } from "@/hooks/useMessages";
+import { useMessages, Message, Conversation } from "@/hooks/useMessages";
 import { supabase } from "@/integrations/supabase/client";
 
 const ClientMessages = () => {
@@ -38,7 +38,7 @@ const ClientMessages = () => {
     if (selectedConversation) {
       fetchMessages(selectedConversation);
     }
-  }, [selectedConversation]);
+  }, [selectedConversation, fetchMessages]);
 
   useEffect(() => {
     if (!selectedConversation) return;
@@ -51,7 +51,7 @@ const ClientMessages = () => {
     };
   }, [selectedConversation]);
 
-  const formattedConversations = conversations.map(conv => {
+  const formattedConversations = conversations.map((conv: Conversation) => {
     const lawyerProfile = conv.lawyer_profiles?.profiles;
     const conversationMessages = messages[conv.id] || [];
     const lastMsg = conversationMessages[conversationMessages.length - 1];
@@ -123,7 +123,11 @@ const ClientMessages = () => {
           </CardHeader>
           <CardContent className="p-0">
             <ScrollArea className="h-[500px]">
-              {filteredConversations.length > 0 ? (
+              {loading ? (
+                <div className="text-center py-12 px-4">
+                  <p className="text-sm text-muted-foreground">Loading conversations...</p>
+                </div>
+              ) : filteredConversations.length > 0 ? (
                 <div className="space-y-1 px-3 pb-3">
                   {filteredConversations.map((conv) => (
                     <button
@@ -163,7 +167,9 @@ const ClientMessages = () => {
               ) : (
                 <div className="text-center py-12 px-4">
                   <MessageSquare className="h-12 w-12 text-muted-foreground mx-auto mb-3 opacity-50" />
-                  <p className="text-sm text-muted-foreground">No conversations yet</p>
+                  <p className="text-sm text-muted-foreground">
+                    {searchQuery ? "No conversations match your search" : "No conversations yet"}
+                  </p>
                 </div>
               )}
             </ScrollArea>
@@ -189,7 +195,7 @@ const ClientMessages = () => {
 
               <ScrollArea className="h-[400px] p-4">
                 <div className="space-y-4">
-                  {selectedConv.messages.map((message: any) => {
+                  {selectedConv.messages.map((message: Message) => {
                     const isClientMessage = message.sender_id === currentUserId;
                     return (
                       <div

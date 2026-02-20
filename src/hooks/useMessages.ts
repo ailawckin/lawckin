@@ -1,42 +1,51 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+
+export type MessageStatus = "sent" | "delivered" | "read" | string;
 
 export interface Message {
   id: string;
   conversation_id: string;
   sender_id: string;
   content: string;
-  status: string;
+  status: MessageStatus;
   created_at: string;
 }
 
-interface Conversation {
+export interface Conversation {
   id: string;
   client_id: string;
   lawyer_id: string;
   created_at: string;
   updated_at: string;
+  last_message_at: string | null;
+  last_message_preview: string | null;
   lawyer_profiles?: {
     user_id: string;
     profiles?: {
-      full_name: string;
+      full_name: string | null;
       avatar_url: string | null;
-    };
-  };
+    } | null;
+  } | null;
 }
 
 export const useMessages = () => {
-  const [conversations, setConversations] = useState<any[]>([]);
+  const [conversations, setConversations] = useState<Conversation[]>([]);
   const [messages, setMessages] = useState<Record<string, Message[]>>({});
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  const fetchConversations = async () => {
+  const fetchConversations = useCallback(async () => {
     setLoading(true);
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) return;
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (!user) {
+        setConversations([]);
+        return;
+      }
 
       const { data, error } = await supabase
         .from("conversations")
@@ -51,15 +60,20 @@ export const useMessages = () => {
         .order("updated_at", { ascending: false });
 
       if (error) throw error;
-      setConversations(data || []);
-    } catch (error: any) {
+      setConversations((data as Conversation[]) || []);
+    } catch (error) {
       console.error("Error fetching conversations:", error);
+      toast({
+        title: "Unable to load conversations",
+        description: "Please refresh and try again.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
 
-  const fetchMessages = async (conversationId: string) => {
+  const fetchMessages = useCallback(async (conversationId: string) => {
     try {
       const { data, error } = await supabase
         .from("messages")
@@ -68,86 +82,91 @@ export const useMessages = () => {
         .order("created_at", { ascending: true });
 
       if (error) throw error;
-      
-      setMessages(prev => ({
+
+      setMessages((prev) => ({
         ...prev,
-        [conversationId]: data || []
+        [conversationId]: (data as Message[]) || [],
       }));
     } catch (error) {
       console.error("Error fetching messages:", error);
     }
-  };
+  }, []);
 
-  const sendMessage = async (conversationId: string, content: string) => {
-    try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) throw new Error("Not authenticated");
+  const sendMessage = useCallback(
+    async (conversationId: string, content: string) => {
+      try {
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
+        if (!user) throw new Error("Not authenticated");
 
-      const { error } = await supabase
-        .from("messages")
-        .insert({
+        const { error } = await supabase.from("messages").insert({
           conversation_id: conversationId,
           sender_id: user.id,
           content,
         });
 
-      if (error) throw error;
-      
-      // Refresh messages
-      await fetchMessages(conversationId);
-    } catch (error: any) {
-      toast({
-        title: "Error sending message",
-        description: error.message,
-        variant: "destructive",
-      });
-    }
-  };
+        if (error) throw error;
 
-  const createConversation = async (lawyerId: string) => {
-    try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) throw new Error("Not authenticated");
-
-      const { data, error } = await supabase
-        .from("conversations")
-        .insert({
-          client_id: user.id,
-          lawyer_id: lawyerId,
-        })
-        .select()
-        .single();
-
-      if (error) {
-        // If conversation already exists, fetch it
-        if (error.code === '23505') {
-          const { data: existing } = await supabase
-            .from("conversations")
-            .select("*")
-            .eq("client_id", user.id)
-            .eq("lawyer_id", lawyerId)
-            .single();
-          
-          return existing;
-        }
-        throw error;
+        await fetchMessages(conversationId);
+      } catch (error: any) {
+        toast({
+          title: "Error sending message",
+          description: error.message,
+          variant: "destructive",
+        });
       }
+    },
+    [fetchMessages, toast]
+  );
 
-      return data;
-    } catch (error: any) {
-      toast({
-        title: "Error creating conversation",
-        description: error.message,
-        variant: "destructive",
-      });
-      return null;
-    }
-  };
+  const createConversation = useCallback(
+    async (lawyerId: string) => {
+      try {
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
+        if (!user) throw new Error("Not authenticated");
+
+        const { data, error } = await supabase
+          .from("conversations")
+          .insert({
+            client_id: user.id,
+            lawyer_id: lawyerId,
+          })
+          .select()
+          .single();
+
+        if (error) {
+          if (error.code === "23505") {
+            const { data: existing } = await supabase
+              .from("conversations")
+              .select("*")
+              .eq("client_id", user.id)
+              .eq("lawyer_id", lawyerId)
+              .single();
+
+            return existing;
+          }
+          throw error;
+        }
+
+        return data;
+      } catch (error: any) {
+        toast({
+          title: "Error creating conversation",
+          description: error.message,
+          variant: "destructive",
+        });
+        return null;
+      }
+    },
+    [toast]
+  );
 
   useEffect(() => {
-    fetchConversations();
+    void fetchConversations();
 
-    // Set up realtime subscription
     const channel = supabase
       .channel("messages-changes")
       .on(
@@ -158,7 +177,7 @@ export const useMessages = () => {
           table: "messages",
         },
         () => {
-          fetchConversations();
+          void fetchConversations();
         }
       )
       .subscribe();
@@ -166,7 +185,7 @@ export const useMessages = () => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, []);
+  }, [fetchConversations]);
 
   return {
     conversations,
