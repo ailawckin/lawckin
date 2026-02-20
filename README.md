@@ -136,6 +136,9 @@ src/
 ## Docs
 
 - `docs/setup-deploy.md` — setup, migrations, deployment
+- `docs/production-hardening.md` — production-readiness baseline and controls
+- `docs/database-ops-checklist.md` — backups/PITR/migrations checklist
+- `docs/smoke-tests.md` — smoke test plan and CI command
 - `docs/admin-ops.md` — admin access and troubleshooting
 - `docs/testing.md` — test data and QA checklist
 - `docs/archive/` — legacy notes and historical docs

@@ -23,20 +23,28 @@ npm install
 cp .env.example .env
 ```
 
-3. Set environment variables:
+3. Set environment variables (then validate):
 
 ```env
 # Client app
 VITE_SUPABASE_URL=your-supabase-url
 VITE_SUPABASE_PUBLISHABLE_KEY=your-anon-key
 VITE_GOOGLE_MAPS_API_KEY=optional-for-address-autocomplete
+VITE_OBSERVABILITY_ENDPOINT=optional-log-endpoint
+VITE_OBSERVABILITY_ENV=staging
 
 # Script/ops (required for seed/cleanup/backfill)
 SUPABASE_URL=your-supabase-url
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
-4. Start the dev server:
+4. Validate env config:
+
+```bash
+npm run validate:env
+```
+
+5. Start the dev server:
 
 ```bash
 npm run dev
