@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Menu, LogOut, LayoutDashboard, Shield, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -33,34 +33,7 @@ const Header = () => {
   const location = useLocation();
   const { toast } = useToast();
 
-  useEffect(() => {
-    checkUser();
-    
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session?.user) {
-        setUser(session.user);
-        fetchUserRole(session.user.id);
-        fetchProfile(session.user.id);
-      } else {
-        setUser(null);
-        setUserRole(null);
-        setProfile(null);
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  const checkUser = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (user) {
-      setUser(user);
-      fetchUserRole(user.id);
-      fetchProfile(user.id);
-    }
-  };
-
-  const fetchUserRole = async (userId: string) => {
+  const fetchUserRole = useCallback(async (userId: string) => {
     const { data } = await supabase
       .from("user_roles")
       .select("role")
@@ -70,9 +43,9 @@ const Header = () => {
     if (data) {
       setUserRole(data.role);
     }
-  };
+  }, []);
 
-  const fetchProfile = async (userId: string) => {
+  const fetchProfile = useCallback(async (userId: string) => {
     const { data } = await supabase
       .from("profiles")
       .select("full_name")
@@ -82,7 +55,32 @@ const Header = () => {
     if (data) {
       setProfile(data);
     }
-  };
+  }, []);
+
+  const checkUser = useCallback(async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      setUser(user);
+      await Promise.all([fetchUserRole(user.id), fetchProfile(user.id)]);
+    }
+  }, [fetchProfile, fetchUserRole]);
+
+  useEffect(() => {
+    void checkUser();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        setUser(session.user);
+        void Promise.all([fetchUserRole(session.user.id), fetchProfile(session.user.id)]);
+      } else {
+        setUser(null);
+        setUserRole(null);
+        setProfile(null);
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [checkUser, fetchProfile, fetchUserRole]);
 
   const isActive = (path: string) => location.pathname === path;
 

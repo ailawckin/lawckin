@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Scale } from "lucide-react";
+import type { User } from "@supabase/supabase-js";
 import { z } from "zod";
 
 const authSchema = z.object({
@@ -24,99 +25,90 @@ const Auth = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  useEffect(() => {
-    checkAuthAndRedirect();
+  const redirectBasedOnRole = useCallback(async (user: User) => {
+    let roleData: { role: string } | null = null;
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (event === "SIGNED_IN" && session) {
-        await redirectBasedOnRole(session.user);
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, [navigate]);
-
-  const checkAuthAndRedirect = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (session) {
-      await redirectBasedOnRole(session.user);
-    }
-  };
-
-  const redirectBasedOnRole = async (user: any) => {
-    // Check user role - wait a bit if role doesn't exist yet (trigger might be processing)
-    let roleData = null;
     for (let i = 0; i < 3; i++) {
       const { data } = await supabase
-      .from("user_roles")
-      .select("role")
-      .eq("user_id", user.id)
-      .maybeSingle();
-      
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
       if (data) {
         roleData = data;
         break;
       }
-      
-      // Wait 200ms before retrying
-      await new Promise(resolve => setTimeout(resolve, 200));
+
+      await new Promise((resolve) => setTimeout(resolve, 200));
     }
 
     if (!roleData) {
-      // If role still doesn't exist, redirect to onboarding based on metadata
       const roleFromMeta = user.user_metadata?.role || "client";
-      if (roleFromMeta === "lawyer") {
-        navigate("/onboarding/lawyer");
-      } else {
-        navigate("/onboarding/client");
-      }
+      navigate(roleFromMeta === "lawyer" ? "/onboarding/lawyer" : "/onboarding/client");
       return;
     }
 
-    const role = roleData.role;
+    const effectiveRole = roleData.role;
 
-    // Check if onboarding is complete
-    if (role === "client") {
+    if (effectiveRole === "client") {
       const { data: profile } = await supabase
         .from("profiles")
         .select("onboarding_completed")
         .eq("user_id", user.id)
         .maybeSingle();
 
-      if (!profile?.onboarding_completed) {
-        navigate("/onboarding/client");
-      } else {
-        navigate("/dashboard");
-      }
-    } else if (role === "lawyer") {
+      navigate(profile?.onboarding_completed ? "/dashboard" : "/onboarding/client");
+      return;
+    }
+
+    if (effectiveRole === "lawyer") {
       const { data: lawyerProfile } = await supabase
         .from("lawyer_profiles")
         .select("id")
         .eq("user_id", user.id)
         .maybeSingle();
 
-      if (!lawyerProfile) {
-        navigate("/onboarding/lawyer");
-      } else {
-        navigate("/lawyer-dashboard");
-      }
-    } else if (role === "admin") {
-      navigate("/admin");
-    } else {
-      navigate("/");
+      navigate(lawyerProfile ? "/lawyer-dashboard" : "/onboarding/lawyer");
+      return;
     }
-  };
+
+    navigate(effectiveRole === "admin" ? "/admin" : "/");
+  }, [navigate]);
+
+  const checkAuthAndRedirect = useCallback(async () => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    if (session?.user) {
+      await redirectBasedOnRole(session.user);
+    }
+  }, [redirectBasedOnRole]);
+
+  useEffect(() => {
+    void checkAuthAndRedirect();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === "SIGNED_IN" && session) {
+        await redirectBasedOnRole(session.user);
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [checkAuthAndRedirect, redirectBasedOnRole]);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      // Validate input
-      const validationData = isSignUp 
+      const validationData = isSignUp
         ? { email, password, fullName }
         : { email, password };
-      
+
       authSchema.parse(validationData);
 
       if (isSignUp) {
@@ -133,7 +125,6 @@ const Auth = () => {
         });
 
         if (!error && data.user) {
-          // Create user role
           const { error: roleError } = await supabase.from("user_roles").insert({
             user_id: data.user.id,
             role: role,
@@ -141,23 +132,21 @@ const Auth = () => {
 
           if (roleError) {
             console.error("Error creating user role:", roleError);
-            // Continue anyway - trigger will handle it
           }
 
-          // Wait a moment for auth state to sync
-          await new Promise(resolve => setTimeout(resolve, 500));
+          await new Promise((resolve) => setTimeout(resolve, 500));
 
-          // Check if user is signed in and redirect
-          const { data: { session } } = await supabase.auth.getSession();
+          const {
+            data: { session },
+          } = await supabase.auth.getSession();
+
           if (session?.user) {
             toast({
               title: "Success!",
               description: "Account created successfully. Redirecting...",
             });
-            // Explicitly redirect after signup
             await redirectBasedOnRole(session.user);
           } else {
-            // If email confirmation is required, user might not be signed in yet
             toast({
               title: "Success!",
               description: "Account created! Please check your email to confirm your account.",
@@ -189,10 +178,15 @@ const Auth = () => {
               description: "Please check your email and password and try again.",
               variant: "destructive",
             });
-          } else if (error.message.includes("fetch failed") || error.message.includes("network") || error.message.includes("ENOTFOUND")) {
+          } else if (
+            error.message.includes("fetch failed") ||
+            error.message.includes("network") ||
+            error.message.includes("ENOTFOUND")
+          ) {
             toast({
               title: "Connection error",
-              description: "Cannot connect to Supabase. Please check your internet connection and ensure your Supabase project is active.",
+              description:
+                "Cannot connect to Supabase. Please check your internet connection and ensure your Supabase project is active.",
               variant: "destructive",
             });
           } else {
@@ -214,13 +208,13 @@ const Auth = () => {
         });
       } else {
         const errorMessage = error instanceof Error ? error.message : "An error occurred";
-        
-        // Provide more helpful error messages
+
         let userFriendlyMessage = errorMessage;
         if (errorMessage.includes("fetch failed") || errorMessage.includes("network") || errorMessage.includes("ENOTFOUND")) {
-          userFriendlyMessage = "Cannot connect to the server. Please check your internet connection and ensure your Supabase project is active in the dashboard.";
+          userFriendlyMessage =
+            "Cannot connect to the server. Please check your internet connection and ensure your Supabase project is active in the dashboard.";
         }
-        
+
         toast({
           title: "Error",
           description: userFriendlyMessage,
@@ -244,8 +238,8 @@ const Auth = () => {
             {isSignUp ? "Create your account" : "Welcome back"}
           </h1>
           <p className="text-muted-foreground">
-            {isSignUp 
-              ? "Start connecting with verified lawyers" 
+            {isSignUp
+              ? "Start connecting with verified lawyers"
               : "Sign in to access your account"}
           </p>
         </div>
@@ -265,7 +259,7 @@ const Auth = () => {
                     required={isSignUp}
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label>I am a</Label>
                   <div className="flex gap-4">

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -16,18 +16,13 @@ const ClientOnboarding = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  useEffect(() => {
-    checkAuth();
-  }, []);
-
-  const checkAuth = async () => {
+  const checkAuth = useCallback(async () => {
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
       navigate("/auth");
       return;
     }
 
-    // Check if already completed onboarding
     const { data: profile } = await supabase
       .from("profiles")
       .select("onboarding_completed")
@@ -37,7 +32,11 @@ const ClientOnboarding = () => {
     if (profile?.onboarding_completed) {
       navigate("/dashboard");
     }
-  };
+  }, [navigate]);
+
+  useEffect(() => {
+    void checkAuth();
+  }, [checkAuth]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,10 +64,10 @@ const ClientOnboarding = () => {
       });
 
       navigate("/dashboard");
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast({
         title: "Error",
-        description: error.message,
+        description: error instanceof Error ? error.message : "Failed to complete onboarding.",
         variant: "destructive",
       });
     } finally {

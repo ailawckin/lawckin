@@ -108,7 +108,7 @@ const LawyerOnboarding = () => {
       const normalizedPracticeAreas =
         practiceAreas.length > 0 ? practiceAreas : specialty ? [specialty] : [];
       const primaryPracticeArea = normalizedPracticeAreas[0] || specialty;
-      const profileData: any = {
+      const profileData: Record<string, unknown> = {
         user_id: user.id,
         specialty: primaryPracticeArea,
         bar_number: barNumber,
@@ -170,10 +170,10 @@ const LawyerOnboarding = () => {
       });
 
       navigate("/lawyer-dashboard");
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast({
         title: "Error",
-        description: error.message,
+        description: error instanceof Error ? error.message : "Failed to submit profile.",
         variant: "destructive",
       });
     } finally {

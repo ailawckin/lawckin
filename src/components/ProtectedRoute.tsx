@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -12,13 +12,11 @@ const ProtectedRoute = ({ children, requireRole }: ProtectedRouteProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [hasRole, setHasRole] = useState(false);
 
-  useEffect(() => {
-    checkAuth();
-  }, [requireRole]);
+  const checkAuth = useCallback(async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-  const checkAuth = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    
     if (!user) {
       setIsAuthenticated(false);
       setLoading(false);
@@ -27,27 +25,30 @@ const ProtectedRoute = ({ children, requireRole }: ProtectedRouteProps) => {
 
     setIsAuthenticated(true);
 
-    if (requireRole) {
-      const { data: roleData, error: roleError } = await supabase
-        .from("user_roles")
-        .select("role")
-        .eq("user_id", user.id)
-        .eq("role", requireRole)
-        .maybeSingle();
-
-      // Debug logging
-      if (roleError) {
-        console.error("Error checking role:", roleError);
-      }
-      console.log("Role check:", { requireRole, roleData, user_id: user.id });
-
-      setHasRole(!!roleData);
-    } else {
+    if (!requireRole) {
       setHasRole(true);
+      setLoading(false);
+      return;
     }
 
+    const { data: roleData, error: roleError } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", user.id)
+      .eq("role", requireRole)
+      .maybeSingle();
+
+    if (roleError) {
+      console.error("Error checking role:", roleError);
+    }
+
+    setHasRole(Boolean(roleData));
     setLoading(false);
-  };
+  }, [requireRole]);
+
+  useEffect(() => {
+    void checkAuth();
+  }, [checkAuth]);
 
   if (loading) {
     return (
