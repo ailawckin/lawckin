@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { enforceRateLimit } from "../_shared/rate-limit.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -32,6 +33,30 @@ interface IntakeRequest {
 const handler = async (req: Request): Promise<Response> => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
+  }
+
+  if (req.method !== "POST") {
+    return new Response(JSON.stringify({ error: "Method not allowed" }), {
+      status: 405,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+  }
+
+  const limit = enforceRateLimit(req, {
+    key: "ai-lawyer-intake",
+    windowMs: 10 * 60 * 1000,
+    maxRequests: 20,
+  });
+
+  if (!limit.ok) {
+    return new Response(JSON.stringify({ error: limit.message }), {
+      status: 429,
+      headers: {
+        "Content-Type": "application/json",
+        "Retry-After": String(limit.retryAfterSec),
+        ...corsHeaders,
+      },
+    });
   }
 
   try {
